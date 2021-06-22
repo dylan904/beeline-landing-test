@@ -1,0 +1,173 @@
+.search-container {
+    position: absolute;
+    bottom: 0;
+    margin-left: 22%;
+    width: 78%;
+}
+
+.search-wrap {
+    display: flex;
+    overflow: hidden;
+}
+
+.search-submit {
+    flex-grow: 1;
+    background-color: #77b800;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+    border: none;
+    
+    user-select: none;
+    display: inline-block;
+    /*border: 0.2em solid;*/
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    color: #FFF;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+  }
+  .search-submit__text {
+    display: block;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .search-submit__text:before {
+    content: attr(title);
+  }
+  .search-submit__text--bis {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-1em);
+    opacity: 0;
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-submit__mask {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.3s;
+  }
+  
+  .search-submit:hover .search-submit__text, .search-submit:focus .search-submit__text {
+            animation: fx-text 0.3s ease-out;
+  }
+  .search-submit:hover .search-submit__text--bis, .search-submit:focus .search-submit__text--bis {
+            animation: fx-text-bis 0.3s ease-out;
+  }
+  .search-submit:hover .search-submit__mask, .search-submit:focus .search-submit__mask {
+            animation: fx-mask 0.3s ease-out;
+  }
+  
+  .search-submit:active {
+    opacity: 1;
+    background-color: white;
+    color: #77b800;
+  }
+  
+  @-webkit-keyframes fx-mask {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(45deg);
+    }
+  }
+  
+  @keyframes fx-mask {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(45deg);
+    }
+  }
+  @-webkit-keyframes fx-text {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(1em);
+      opacity: 0;
+    }
+  }
+  @keyframes fx-text {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(1em);
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes fx-text-bis {
+    0% {
+      transform: translateX(-1em);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fx-text-bis {
+    0% {
+      transform: translateX(-1em);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .search-submit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid white;
+    transform: scale(1.1, 1.3);
+    transition: transform 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.search-submit:active::before {
+    border-color: #77b800;
+}
+
+.search-submit:hover::before, .search-submit:focus::before {
+    transform: scale(1);
+}
+
+@media (max-width:600px) {
+    .search-container {
+        margin-left: 0!important;
+        width: 100%!important;
+    }
+    .search-wrap {
+      
+      flex-wrap: wrap;
+  }
+    .search-submit::before {
+        transform: scale(1.1, 1.5);
+    }
+}

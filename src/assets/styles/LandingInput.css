@@ -1,0 +1,93 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css");
+
+::-webkit-datetime-edit { padding: 0; }
+
+.container {
+    height: 100px;
+    display: inline-block;
+    padding-left: 32px;
+    color: black;
+    font-size: 18px;
+    position: relative;
+    border-right: 1px solid darkgray;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: white;
+    flex-grow: 1;
+}
+
+@media (max-width:600px) {
+    .container {
+        width: 50%;
+        height: 65px;
+        padding-left: 24px;
+        padding-right: 12px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .container:nth-child(1), .container:nth-child(2) {
+        border-bottom: 1px solid darkgray;
+    }
+    
+    label, input{
+        font-size: 13px
+    }
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.input-wrap, .label-wrap {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.input-wrap {
+    top: 0;
+    opacity: 0;
+    transition: height 0.1s ease-out, opacity 0.1s ease-out, top 0.1s ease-out;
+}
+
+.label-wrap {
+    transition: height 0.1s ease-out;
+    color: #585858;
+}
+
+input {
+    border-width: 0;
+    outline: none!important;
+    font-size: 18px;
+}
+
+label {
+    transform-origin: left center;
+    transition: transform 0.1s ease-out;
+}
+
+.container.expanded > .wrap > .input-wrap {
+    height: 50%;
+    top: 50%;
+    opacity: 1;
+}
+
+.container.expanded > .wrap > .label-wrap {
+    height: 50%;
+}
+
+.container.expanded label {
+    transform: scale(0.9);
+}
+
+label > i {
+    color: black;
+    padding-right: 10px;
+}
+

@@ -1,0 +1,146 @@
+.nav {
+    height: 0;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-wrap {
+    padding: 2.5em 5%;
+    display: flex;
+}
+
+.nav-header {
+    padding-right: 2em;
+    z-index: 2;
+}
+
+.nav-title-link {
+    text-decoration: none;
+    display: flex;
+}
+
+.nav-title {
+    width: 200px;
+    vertical-align: middle;
+}
+
+.nav-btn {
+    display: none;
+}
+
+
+element.style {
+    flex-grow: 1;
+}
+.nav-links-wrap {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.nav-links-right {
+    display: flex;
+    float: right;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 13px 2em;
+    text-decoration: none;
+    color: #efefef;
+}
+
+#nav-check {
+    display: none;
+}
+
+.nav-link.select-link {
+    padding: 0;
+    position: relative;
+    bottom: 2px
+}
+
+@media (max-width:600px) {
+    .nav {
+        position: absolute;
+        top: 0;    
+        z-index: 100;
+    }
+    .nav-wrap {
+        padding: 32px;
+    }
+    .nav-title {
+        display: block;
+    }
+    .nav-btn {
+        display: inline-block;
+        z-index: 2;
+    }
+    label[for="nav-check"] {
+        display: block;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+
+    .nav-link.select-link {
+        position: static;
+        padding-bottom: 10px;
+    }
+    
+    .nav-check-line {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+    .nav-links-wrap {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 0;
+        left: 0;
+    }
+    .nav-links-right {
+        float: left;
+        display: inline;
+    }
+    .nav-link {
+        display: block;
+        width: 100%;
+    }
+    #nav-check:not(:checked)~.nav-links-wrap {
+        height: 0px;
+    }
+    #nav-check:checked~.nav-links-wrap {
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 150px;
+        background-color: #333333f5;
+    }
+
+    .nav-header {
+        padding-right: 0
+    }
+    
+    .nav-wrap {
+        padding: 24px 32px;
+        justify-content: space-between;
+    }
+
+    .nav-title {
+        width: 160px;
+    }
+}
+
+@media (max-width:350px) {
+    .nav-wrap {
+        padding: 16px 24px;
+    }
+}

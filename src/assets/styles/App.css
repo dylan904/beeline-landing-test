@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Butler';
+  src: url("../fonts/Butler_Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Butler Light';
+  src: url("../fonts/Butler_Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Butler Medium';
+  src: url("../fonts/Butler_Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Butler Bold';
+  src: url("../fonts/Butler_Bold.otf") format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font-size: 50px;
+  font-family: "PT Sans", sans-serif;
+  color: #fff;
+}
