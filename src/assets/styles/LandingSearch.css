@@ -7,7 +7,6 @@
 
 .search-wrap {
     display: flex;
-    overflow: hidden;
 }
 
 .search-submit {
@@ -164,7 +163,6 @@
         width: 100%!important;
     }
     .search-wrap {
-      
       flex-wrap: wrap;
   }
     .search-submit::before {
