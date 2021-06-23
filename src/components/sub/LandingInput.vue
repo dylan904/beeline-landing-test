@@ -11,7 +11,7 @@
             <span class="input-wrap">
                 <Autocomplete v-if="autocomplete"
                     :onChange="update" :onFocus="onFocus" :onBlur="onBlur" />
-                <input v-else :type="type" :name="'input-' + name" tabindex="0" 
+                <input v-else :type="type" :name="'input-' + name" tabindex="0" :min="(type === 'date') ? min : false" :data-min="min"
                     @change="update($event)" @focus="onFocus()" @blur="onBlur()" />
             </span>
         </div>
@@ -30,7 +30,8 @@ export default {
     text: {name: String, required: true},
     icon: {name: String, required: true},
     autocomplete: Boolean,
-    onChange: Function
+    onChange: Function,
+    min: String
   },
 
   data() {
@@ -39,6 +40,10 @@ export default {
       value: "",
       clicked: false
     };
+  },
+
+  created() {
+    console.log('created', this.name, this.min)
   },
 
   methods: {

@@ -62,14 +62,15 @@ element.style {
     bottom: 2px
 }
 
-@media (max-width:600px) {
+@media (max-width:768px) {
     .nav {
         position: absolute;
         top: 0;    
         z-index: 100;
     }
     .nav-wrap {
-        padding: 32px;
+        padding: 48px;
+        justify-content: space-between;
     }
     .nav-title {
         display: block;
@@ -128,19 +129,36 @@ element.style {
     .nav-header {
         padding-right: 0
     }
-    
-    .nav-wrap {
-        padding: 24px 32px;
-        justify-content: space-between;
-    }
 
     .nav-title {
         width: 160px;
     }
 }
 
+@media (max-width:600px) {
+    .nav-wrap {
+        padding: 24px 32px;
+    }
+}
+
 @media (max-width:350px) {
     .nav-wrap {
         padding: 16px 24px;
+    }
+}
+
+
+
+@media (max-width:1024px) and (min-width:769px) {
+    .nav-wrap {
+        flex-wrap: wrap;
+        padding-top: 1em;
+    }
+    .nav-header {
+        flex-basis: 100%;
+        margin-bottom: 48px
+    }
+    .nav-title-link {
+        justify-content: center;
     }
 }

@@ -4,7 +4,7 @@
 
         <div class="search-wrap">
             <template v-for="(opt, x) in searchOpts">
-                <LandingInput :key="x" :name="opt.name" :type="opt.type" :text="opt.text" :icon="opt.icon" :autocomplete="opt.autocomplete" :onChange="changeSearchOpt" />
+                <LandingInput :key="x" :name="opt.name" :type="opt.type" :text="opt.text" :icon="opt.icon" :autocomplete="opt.autocomplete" :onChange="changeSearchOpt" :min="opt.min" />
             </template>
 
             <button type="submit" class="search-submit">
@@ -28,8 +28,8 @@
             return {
                 searchOpts: [
                     {name: 'location', type: 'text', text: 'Where are you going?', icon: 'map-marker-alt', autocomplete: true},
-                    {name: 'checkin', type: 'date', text: 'Check In', icon: 'calendar'},
-                    {name: 'checkout', type: 'date', text: 'Check Out', icon: 'calendar'},
+                    {name: 'checkin', type: 'date', text: 'Check In', icon: 'calendar', min: new Date().toISOString().split("T")[0]},
+                    {name: 'checkout', type: 'date', text: 'Check Out', icon: 'calendar', min: new Date().toISOString().split("T")[0]},
                     {name: 'travler-count', type: 'number', text: 'Number of Travelers', icon: 'users'}
                 ],
                 searchData: {},
@@ -43,10 +43,16 @@
         methods: {
             destinationTypeChange(name) {
                 this.destinationType = name;
+                console.log('test', this.searchOpts[1].min)
                 this.logCurrentSearch();
             },
             changeSearchOpt(name, value) {
                 this.searchData[name] = value;
+
+                if (name === 'checkin') {
+                    this.searchOpts.find(opt => opt.name === 'checkout').min = value
+                }
+
                 this.logCurrentSearch();
             },
             logCurrentSearch() {

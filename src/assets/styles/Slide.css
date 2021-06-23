@@ -149,6 +149,13 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .slide > .slide-wrap {
+        margin-left: 10%;
+        margin-right: 22%;
+    }
+}
+
 @media (max-width:350px) {
     .slide > .slide-wrap {
         margin-top: 120px;
