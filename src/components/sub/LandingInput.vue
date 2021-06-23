@@ -10,7 +10,7 @@
             </span>
             <span class="input-wrap">
                 <Autocomplete v-if="autocomplete"
-                    :change="update" :onFocus="onFocus" :onBlur="onBlur" />
+                    :onChange="update" :onFocus="onFocus" :onBlur="onBlur" />
                 <input v-else :type="type" :name="'input-' + name" tabindex="0" 
                     @change="update($event)" @focus="onFocus()" @blur="onBlur()" />
             </span>

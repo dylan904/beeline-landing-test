@@ -36,7 +36,7 @@
 export default {
   name: "Autocomplete",
   props: {
-      onChange: Function,
+      onChange: {type: Function, required: true},
       onFocus: Function,
       onBlur: Function
   },

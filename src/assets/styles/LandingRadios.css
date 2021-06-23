@@ -12,17 +12,20 @@
     left: -9999px;
 }
 
-[type="radio"]:checked+label, [type="radio"]:not(:checked)+label {
+[type="radio"]+label {
     position: relative;
     padding-left: 28px;
     cursor: pointer;
     line-height: 20px;
     display: inline-block;
-    color: #666;
+    color: #c3c3c3;
+}
+
+[type="radio"]:checked+label {
     color: white;
 }
 
-[type="radio"]:checked+label:before, [type="radio"]:not(:checked)+label:before {
+[type="radio"]+label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -31,19 +34,19 @@
     height: 18px;
     border: 1px solid #ddd;
     border-radius: 100%;
-    background: #fff;
+    transition: background-color 0.2s ease;
 }
 
-[type="radio"]:checked+label:after, [type="radio"]:not(:checked)+label:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #77b800;
+[type="radio"]+label:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 5px;
+    left: 5px;
     border-radius: 100%;
-    transition: all 0.2s ease;
+    transition: opacity .2s ease, transform 0.2s ease;
 }
 
 [type="radio"]:not(:checked)+label:after {
@@ -54,6 +57,11 @@
 [type="radio"]:checked+label:after {
     opacity: 1;
     transform: scale(1);
+}
+
+[type=radio]:checked+label:before {
+    background-color: #77b800;
+    border-color: #77b800;
 }
 
 @media (max-width:600px) {
